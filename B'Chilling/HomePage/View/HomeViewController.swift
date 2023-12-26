@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     var imageView : UIImageView!
     var exploreButton : UIButton!
     var innerView : UIView!
-    var commonColor : UIColor = UIColor(red: 20, green: 202, blue: 225, alpha: 100)
+    var commonColor : UIColor = UIColor(red: 20/255, green: 202/255, blue: 225/255, alpha: 1)
     var presenter : HomePresenterProtocol?
     
     var users : [CustomFormCell] {
@@ -30,35 +30,40 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         
-        TextDescription = UILabel()
-        TextDescription?.text = "Please list your chill friends bellow,"
         
+        view.backgroundColor = .white
         imageView = UIImageView(image: LogoImage)
         
-//        frame: CGRect(x: 0, y: 0, width: 151, height: 43))
+        innerView = UIView()
+        innerView.layer.cornerRadius = 43
+        innerView.backgroundColor = commonColor
+
+        TextDescription = UILabel()
+        TextDescription?.text = "Please list your chill friends bellow,"
+        TextDescription.textColor = .white
+        
+//        users.forEach({ formCell in
+//            innerView.addSubview(formCell)
+//        })
+        
+        innerView.addSubview(users[0])
+        
         exploreButton = UIButton(type: .system)
         exploreButton.setTitle("Explore", for: .normal)
         exploreButton.setTitleColor(commonColor, for: .normal)
         exploreButton.backgroundColor = .white
         
-//        frame: CGRect(x: 0, y: 0, width: 393, height: 671)
-        innerView = UIView()
-        
-        
         self.view.addSubview(imageView)
-        
+//        
         innerView.addSubview(TextDescription)
-        users.forEach({ formCell in
-            innerView.addSubview(formCell)
-        })
-        innerView.addSubview(exploreButton)
-        
-        innerView.backgroundColor = commonColor
-        
+
+//        innerView.addSubview(exploreButton)
+//
+//        
         innerLayoutSetup()
-        
+//        
         self.view.addSubview(innerView)
-        
+//        
         parentLayoutSetup()
     }
     
@@ -66,32 +71,34 @@ class HomeViewController: UIViewController {
         innerView.subviews.forEach { v in
             v.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+//        
         NSLayoutConstraint.activate([
             TextDescription.topAnchor.constraint(equalTo: innerView.topAnchor, constant: 48),
             TextDescription.heightAnchor.constraint(equalToConstant: 58),
+            TextDescription.centerXAnchor.constraint(equalTo: innerView.centerXAnchor),
+            
             
             users[0].topAnchor.constraint(equalTo: TextDescription.bottomAnchor, constant: 33),
-
-            users[1].topAnchor.constraint(equalTo: users[0].topAnchor, constant: 11),
-            
-            users[2].topAnchor.constraint(equalTo: users[1].topAnchor, constant: 11),
-
-            exploreButton.topAnchor.constraint(equalTo: users[2].bottomAnchor, constant: 71),
-            exploreButton.widthAnchor.constraint(equalToConstant: 151),
-            exploreButton.heightAnchor.constraint(equalToConstant: 43)
-            
+//
+//            users[1].topAnchor.constraint(equalTo: users[0].topAnchor, constant: 11),
+//            
+//            users[2].topAnchor.constraint(equalTo: users[1].topAnchor, constant: 11),
+//
+//            exploreButton.topAnchor.constraint(equalTo: users[2].bottomAnchor, constant: 71),
+//            exploreButton.widthAnchor.constraint(equalToConstant: 151),
+//            exploreButton.heightAnchor.constraint(equalToConstant: 43)
+//            
         ])
-        
-        users.forEach { b in
-            b.widthAnchor.constraint(equalToConstant: 228).isActive = true
-            b.heightAnchor.constraint(equalToConstant: 96).isActive = true
-        }
-        
-        innerView.subviews.forEach {
-            $0.centerXAnchor.constraint(equalTo: innerView .centerXAnchor).isActive = true
-        }
-        
+//        
+//        users.forEach { b in
+//            b.widthAnchor.constraint(equalToConstant: 228).isActive = true
+//            b.heightAnchor.constraint(equalToConstant: 96).isActive = true
+//        }
+//        
+//        innerView.subviews.forEach {
+//            $0.centerXAnchor.constraint(equalTo: innerView .centerXAnchor).isActive = true
+//        }
+//        
         
     }
 
@@ -109,8 +116,8 @@ class HomeViewController: UIViewController {
             
             innerView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
             innerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 393),
-            imageView.heightAnchor.constraint(equalToConstant: 671)
+            innerView.widthAnchor.constraint(equalToConstant: 393),
+            innerView.heightAnchor.constraint(equalToConstant: 671)
         ])
         
         

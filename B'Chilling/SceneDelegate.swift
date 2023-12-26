@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         
         
-        var window = UIWindow(frame: windowScene.screen.bounds)
-        window.windowScene = windowScene
-        window.rootViewController = HomeRouter.createHomeModule()
-        window.makeKeyAndVisible()
+        window = UIWindow(frame: windowScene.screen.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = HomeRouter.createHomeModule()
+        window?.makeKeyAndVisible()
         
     }
 
