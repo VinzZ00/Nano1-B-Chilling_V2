@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeViewController: UIViewController {
     
@@ -34,20 +35,98 @@ class HomeViewController: UIViewController {
         return CustomFormCell()
     }()
     
-    @objc func handleTapGest(_ sender : UITapGestureRecognizer) {
-        if let label = sender.view as? UILabel
-        {
-            switch label.text! {
-            case "🥶":
-                print("Chill")
-            case "😕":
-                print("blue")
-            default :
-                print("default")
-            }
+    @objc func exploreButtonHandle(_ sender : UIButton) {
+        
+//        var userDestination : Destination = Destination(spotAvailable: <#T##[String : CLLocation]#>, destinationLoc: <#T##(String, CLLocation)#>, dominatingMood: <#T##Emotions#>)
+        
+        var (blue, happy, stress) = (0,0,0)
+        
+        // Sum up emotions
+        if firstCell.emotion == .chill {
+            happy += 1;
+        } else if secondCell.emotion == .blue {
+            blue += 1;
+        } else if thirdCell.emotion == .stress {
+            stress += 1;
         }
         
-        print("tapped")
+        var domMood : Emotions?
+        // Determine dominating emotion
+        if blue > 1 {
+            domMood = .blue
+        } else if happy > 1 {
+            domMood = .chill
+        } else if stress > 1 {
+            domMood = .stress
+        } else if blue == 0 && stress != 0 && happy != 0 {
+            domMood = .chillnStress
+        } else if stress == 0 && happy != 0 && blue != 0 {
+            domMood = .bluenchill
+        } else if happy == 0 && stress != 0 && blue != 0 {
+            domMood = .bluenstress
+        } else {
+            domMood = .AllCanDo
+        }
+        
+        // assess available spot
+        var spotAvailable : [String : CLLocation]?
+        switch domMood {
+        case .chill :
+            spotAvailable =
+            [
+                "Kumolo BSD" : Destination.spots["Kumolo BSD"]!,
+                "Q’Billiard" : Destination.spots["Q’Billiard"]!,
+                "Techpolitan Board Game" : Destination.spots["Techpolitan Board Game"]!
+            ]
+        case .blue :
+            spotAvailable = [
+                "Food Court The Breeze" : Destination.spots["Food Court The Breeze"]!,
+                "Lake View Breeze" : Destination.spots["Lake View Breeze"]!,
+                "Walking Track Breeze" : Destination.spots["Walking Track Breeze"]!
+            ]
+        case .stress :
+            spotAvailable = [
+                "Sinar Djaya" : Destination.spots["Sinar Djaya"]!,
+                "Spincity" : Destination.spots["Spincity"]!,
+                "Gold Gym" : Destination.spots["Gold Gym"]!
+            ]
+        case .bluenchill :
+            spotAvailable = [
+                "Food Court The Breeze" : Destination.spots["Food Court The Breeze"]!,
+                "Kumolo BSD" : Destination.spots["Kumolo BSD"]!,
+                "Lake View Breeze" : Destination.spots["Lake View Breeze"]!
+            ]
+        case .bluenstress :
+            spotAvailable = [
+                "Lake View Breeze" : Destination.spots["Lake View Breeze"]!,
+                "Spincity" : Destination.spots["Spincity"]!,
+                "Walking Track Breeze" : Destination.spots["Walking Track Breeze"]!
+            ]
+            
+        case .chillnStress :
+            spotAvailable = [
+                "Sinar Djaya" : Destination.spots["Sinar Djaya"]!,
+                "Gold Gym" : Destination.spots["Gold Gym"]!,
+                "Q’Billiard" : Destination.spots["Q’Billiard"]!
+            ]
+        case .AllCanDo :
+            spotAvailable = [
+                "Kumolo BSD" : Destination.spots["Kumolo BSD"]!,
+                "Food Court The Breeze" : Destination.spots["Food Court The Breeze"]!,
+                "Sinar Djaya" : Destination.spots["Sinar Djaya"]!
+            ]
+        @unknown default:
+            fatalError("Unexpected Mood in Dominating Mood")
+        }
+        
+        if 
+            let spotAvailable = spotAvailable,
+            let domMood = domMood 
+        {
+            let destination = Destination(spotAvailable: spotAvailable, dominatingMood: domMood)
+            self.presenter?.saveDestination(dest: destination)
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -75,6 +154,7 @@ class HomeViewController: UIViewController {
         exploreButton.setTitleColor(commonColor, for: .normal)
         exploreButton.backgroundColor = .white
         exploreButton.layer.cornerRadius = 22
+        exploreButton.addTarget(self, action: #selector(exploreButtonHandle(_:)), for: .touchUpInside)
         
         innerView.addSubview(TextDescription)
         innerView.addSubview(firstCell)

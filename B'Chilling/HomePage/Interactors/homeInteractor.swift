@@ -17,8 +17,8 @@ protocol HomeInteractorProtocol : AnyObject{
 class homeInteractor : HomeInteractorProtocol {
     
     weak var presenter : HomePresenterProtocol?
-    var userDestination : Destination?
-    
+    var userDestination = Destination.shared
+
     func createDestination(destination : Destination) {
         userDestination = destination
         presenter?.didCreateDestination()

@@ -10,7 +10,7 @@ import UIKit
 class CustomFormCell: UIView, UITextFieldDelegate {
 
     var name : String = ""
-    var emotions : Emotions = .chill
+    var emotion : Emotions = .chill
     
     var nameField : UITextField = {
         let textField = UITextField()
@@ -78,25 +78,22 @@ class CustomFormCell: UIView, UITextFieldDelegate {
                 chillEmoticon.alpha = 1
                 blueEmoticon.alpha = 0.5
                 stressEmoticon.alpha = 0.5
-                emotions = Emotions(rawValue: label.text!)!
-//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
-//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
+                emotion = Emotions(rawValue: label.text!)!
+
             case "😕":
                 print("blue")
                 chillEmoticon.alpha = 0.5
                 blueEmoticon.alpha = 1
                 stressEmoticon.alpha = 0.5
-                emotions = Emotions(rawValue: label.text!)!
-//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
-//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
+                emotion = Emotions(rawValue: label.text!)!
+
             default :
                 print("Stress")
                 chillEmoticon.alpha = 0.5
                 blueEmoticon.alpha = 0.5
                 stressEmoticon.alpha = 1
-                emotions = Emotions(rawValue: label.text!)!
-//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
-//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
+                emotion = Emotions(rawValue: label.text!)!
+
             }
         }
     }
