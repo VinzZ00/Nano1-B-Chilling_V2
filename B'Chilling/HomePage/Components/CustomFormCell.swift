@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomFormCell: UIView {
+class CustomFormCell: UIView, UITextFieldDelegate {
 
     var name : String = ""
     var emotions : Emotions = .chill
@@ -16,24 +16,44 @@ class CustomFormCell: UIView {
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.clipsToBounds = true
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderWidth = 1.5
         textField.borderStyle = .roundedRect
         textField.layer.cornerRadius = 19
-        
         textField.placeholder = "Enter text"
         return textField
     }()
     
-    var chillEmoticon : UILabel!
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if let t = textField.text {
+            name = t
+        }
+    }
     
-    var blueEmoticon : UILabel!
+    let chillEmoticon : UILabel = {
+        let l = UILabel()
+        l.textAlignment = .center
+        l.font = UIFont.systemFont(ofSize: 24)
+        l.text = "🥶"
+        l.isUserInteractionEnabled = true
+        return l
+    }()
     
-    var stressEmoticon : UILabel = {
+    let blueEmoticon : UILabel = {
+        let l = UILabel()
+        l.textAlignment = .center
+        l.font = UIFont.systemFont(ofSize: 24)
+        l.text = "😕"
+        l.isUserInteractionEnabled = true
+        return l
+    }()
+    
+    let stressEmoticon : UILabel = {
         let l = UILabel()
         l.textAlignment = .center
         l.font = UIFont.systemFont(ofSize: 24)
         l.text = "🤯"
+        l.isUserInteractionEnabled = true
         return l
     }()
     
@@ -47,28 +67,42 @@ class CustomFormCell: UIView {
         setup()
     }
     
-    @objc func handleTapGest() {
+    @objc func handleTapGest(_ sender : UIGestureRecognizer) {
         print("tapped")
+        
+        if let label = sender.view as? UILabel
+        {
+            switch label.text! {
+            case "🥶":
+                print("chill")
+                chillEmoticon.alpha = 1
+                blueEmoticon.alpha = 0.5
+                stressEmoticon.alpha = 0.5
+                emotions = Emotions(rawValue: label.text!)!
+//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
+//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
+            case "😕":
+                print("blue")
+                chillEmoticon.alpha = 0.5
+                blueEmoticon.alpha = 1
+                stressEmoticon.alpha = 0.5
+                emotions = Emotions(rawValue: label.text!)!
+//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
+//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
+            default :
+                print("Stress")
+                chillEmoticon.alpha = 0.5
+                blueEmoticon.alpha = 0.5
+                stressEmoticon.alpha = 1
+                emotions = Emotions(rawValue: label.text!)!
+//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
+//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
+            }
+        }
     }
 
     
     func setup() {
-        
-        chillEmoticon = UILabel()
-        chillEmoticon.textAlignment = .center
-        chillEmoticon.font = UIFont.systemFont(ofSize: 24)
-        chillEmoticon.text = "🥶"
-        chillEmoticon.isUserInteractionEnabled = true
-        
-        blueEmoticon = UILabel()
-        blueEmoticon.textAlignment = .center
-        blueEmoticon.font = UIFont.systemFont(ofSize: 24)
-        blueEmoticon.text = "😕"
-        blueEmoticon.isUserInteractionEnabled = true
-        
-//        let stressEmoticon = self.stressEmoticon
-        stressEmoticon.isUserInteractionEnabled = true
-        
         
         // Adding all into UIView
         addSubview(nameField)
@@ -76,11 +110,16 @@ class CustomFormCell: UIView {
         addSubview(blueEmoticon)
         addSubview(stressEmoticon)
 
-        let tapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest))
         
-//        blueEmoticon.addGestureRecognizer(tapGest)
-        stressEmoticon.addGestureRecognizer(tapGest)
-//        chillEmoticon.addGestureRecognizer(tapGest)
+        //Create Tap Gessture
+        let chillTapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest))
+        let blueTapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest))
+        let stressTapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest))
+        
+        //Register Tap Gesture
+        chillEmoticon.addGestureRecognizer(chillTapGest)
+        blueEmoticon.addGestureRecognizer(blueTapGest)
+        stressEmoticon.addGestureRecognizer(stressTapGest)
         
         self.subviews.forEach { v in
             v.translatesAutoresizingMaskIntoConstraints = false

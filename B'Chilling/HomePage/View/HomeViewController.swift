@@ -71,8 +71,10 @@ class HomeViewController: UIViewController {
         //MARK: Explore Button
         exploreButton = UIButton(type: .system)
         exploreButton.setTitle("Explore", for: .normal)
+        exploreButton.titleLabel?.font = .systemFont(ofSize: 24, weight: .semibold)
         exploreButton.setTitleColor(commonColor, for: .normal)
         exploreButton.backgroundColor = .white
+        exploreButton.layer.cornerRadius = 22
         
         innerView.addSubview(TextDescription)
         innerView.addSubview(firstCell)
