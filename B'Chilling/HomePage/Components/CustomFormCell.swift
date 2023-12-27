@@ -25,32 +25,15 @@ class CustomFormCell: UIView {
         return textField
     }()
     
-    var chillEmoticon : UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: 24)
-        l.text = "🥶"
-        
-        let tapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest(_:)))
-        l.addGestureRecognizer(tapGest)
-        return l
-    }()
+    var chillEmoticon : UILabel!
     
-    var blueEmoticon : UILabel = {
-        let l = UILabel()
-        l.textAlignment = .center
-        l.font = UIFont.systemFont(ofSize: 24)
-        l.text = "😕"
-        l.isUserInteractionEnabled = true
-        return l
-    }()
+    var blueEmoticon : UILabel!
     
     var stressEmoticon : UILabel = {
         let l = UILabel()
         l.textAlignment = .center
         l.font = UIFont.systemFont(ofSize: 24)
         l.text = "🤯"
-        l.isUserInteractionEnabled = true
         return l
     }()
     
@@ -64,53 +47,40 @@ class CustomFormCell: UIView {
         setup()
     }
     
-    @objc func handleTapGest(_ sender : UITapGestureRecognizer) {
-//        if let label = sender.view as? UILabel
-//        {
-//            switch label.text! {
-//            case "🥶":
-//                print("Chill")
-//                emotions = Emotions(rawValue: label.text!)!
-//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
-//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
-//            case "😕":
-//                print("blue")
-//                emotions = Emotions(rawValue: label.text!)!
-//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
-//                stressEmoticon.gestureRecognizers?[0].isEnabled = false
-//            default :
-//                print("default")
-//                emotions = Emotions(rawValue: label.text!)!
-//                chillEmoticon.gestureRecognizers?[0].isEnabled = false
-//                blueEmoticon.gestureRecognizers?[0].isEnabled = false
-//            }
-//        }
-        
+    @objc func handleTapGest() {
         print("tapped")
     }
+
     
     func setup() {
-        // Remove Auto Layout
         
-        
-        // Adding HandleTap to Button
-        let tapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest(_:)))
-        
-        chillEmoticon.addGestureRecognizer(tapGest)
-//        stressEmoticon.addGestureRecognizer(tapGest)
-//        blueEmoticon.addGestureRecognizer(tapGest)
-
+        chillEmoticon = UILabel()
+        chillEmoticon.textAlignment = .center
+        chillEmoticon.font = UIFont.systemFont(ofSize: 24)
+        chillEmoticon.text = "🥶"
         chillEmoticon.isUserInteractionEnabled = true
-//        stressEmoticon.isUserInteractionEnabled = true
-//        blueEmoticon.isUserInteractionEnabled = true
         
-        self.isUserInteractionEnabled = true
+        blueEmoticon = UILabel()
+        blueEmoticon.textAlignment = .center
+        blueEmoticon.font = UIFont.systemFont(ofSize: 24)
+        blueEmoticon.text = "😕"
+        blueEmoticon.isUserInteractionEnabled = true
+        
+//        let stressEmoticon = self.stressEmoticon
+        stressEmoticon.isUserInteractionEnabled = true
+        
         
         // Adding all into UIView
         addSubview(nameField)
         addSubview(chillEmoticon)
         addSubview(blueEmoticon)
         addSubview(stressEmoticon)
+
+        let tapGest = UITapGestureRecognizer(target: self, action: #selector(handleTapGest))
+        
+//        blueEmoticon.addGestureRecognizer(tapGest)
+        stressEmoticon.addGestureRecognizer(tapGest)
+//        chillEmoticon.addGestureRecognizer(tapGest)
         
         self.subviews.forEach { v in
             v.translatesAutoresizingMaskIntoConstraints = false
@@ -129,11 +99,10 @@ class CustomFormCell: UIView {
             //Emoticons
             chillEmoticon.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 11.27),
             chillEmoticon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 30),
-            chillEmoticon.heightAnchor.constraint(equalToConstant: 200),
-//
+            
             blueEmoticon.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 11.27),
             blueEmoticon.leadingAnchor.constraint(equalTo: chillEmoticon.trailingAnchor, constant: 36),
-//
+
             stressEmoticon.topAnchor.constraint(equalTo: nameField.bottomAnchor, constant: 11.27),
             stressEmoticon.leadingAnchor.constraint(equalTo: blueEmoticon.trailingAnchor, constant: 36),
             
