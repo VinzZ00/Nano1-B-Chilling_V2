@@ -22,10 +22,6 @@ class HomeViewController: UIViewController, HomeViewProtocol {
     var innerView : UIView!
     var commonColor : UIColor = UIColor(red: 20/255, green: 202/255, blue: 225/255, alpha: 1)
     var presenter : HomePresenterProtocol?
-    
-    var users : [UserData] = {
-        return [UserData(), UserData(), UserData()]
-    }()
                  
     var firstCell : CustomFormCell = {
         return CustomFormCell()

@@ -11,7 +11,7 @@ import CoreLocation
 struct Destination {
     var spotAvailable : [String : CLLocation]
     var dominatingMood : Emotions
-    static var shared : Destination?
+    
     
     static var spots : [String: CLLocation] =
     [
