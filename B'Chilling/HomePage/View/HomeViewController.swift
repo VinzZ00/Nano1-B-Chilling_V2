@@ -8,7 +8,11 @@
 import UIKit
 import CoreLocation
 
-class HomeViewController: UIViewController {
+protocol HomeViewProtocol : AnyObject {
+    var presenter : HomePresenterProtocol? { get set }
+}
+
+class HomeViewController: UIViewController, HomeViewProtocol {
     
     let LogoImage : UIImage = UIImage(named: "Logo")!
     var InnerUIView : UIView!
@@ -37,14 +41,29 @@ class HomeViewController: UIViewController {
     
     @objc func exploreButtonHandle(_ sender : UIButton) {
         
-//        var userDestination : Destination = Destination(spotAvailable: <#T##[String : CLLocation]#>, destinationLoc: <#T##(String, CLLocation)#>, dominatingMood: <#T##Emotions#>)
-        
         var (blue, happy, stress) = (0,0,0)
+        
         
         // Sum up emotions
         if firstCell.emotion == .chill {
             happy += 1;
+        } else if firstCell.emotion == .blue {
+            blue += 1;
+        } else if firstCell.emotion == .stress {
+            stress += 1;
+        }
+        
+        if secondCell.emotion == .chill {
+            happy += 1;
         } else if secondCell.emotion == .blue {
+            blue += 1;
+        } else if secondCell.emotion == .stress {
+            stress += 1;
+        }
+        
+        if thirdCell.emotion == .chill {
+            happy += 1;
+        } else if thirdCell.emotion == .blue {
             blue += 1;
         } else if thirdCell.emotion == .stress {
             stress += 1;
@@ -115,13 +134,13 @@ class HomeViewController: UIViewController {
                 "Food Court The Breeze" : Destination.spots["Food Court The Breeze"]!,
                 "Sinar Djaya" : Destination.spots["Sinar Djaya"]!
             ]
-        @unknown default:
-            fatalError("Unexpected Mood in Dominating Mood")
+        case .none :
+            fatalError("Unexpected nil in Mood in Dominating Mood")
         }
         
-        if 
+        if
             let spotAvailable = spotAvailable,
-            let domMood = domMood 
+            let domMood = domMood
         {
             let destination = Destination(spotAvailable: spotAvailable, dominatingMood: domMood)
             self.presenter?.saveDestination(dest: destination)

@@ -90,6 +90,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2C3AC92B3D6F62004BAA8A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AC2C3ACA2B3D6F70004BAA8A /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactors;
+			sourceTree = "<group>";
+		};
+		AC2C3ACB2B3D76FE004BAA8A /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		AC2C3ACC2B3D7703004BAA8A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		AC2C3ACE2B3D7723004BAA8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AC319A7F2B397AD7003BD0A4 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +275,11 @@
 		AC319AD62B39F204003BD0A4 /* ResultPage */ = {
 			isa = PBXGroup;
 			children = (
+				AC2C3ACE2B3D7723004BAA8A /* Views */,
+				AC2C3ACC2B3D7703004BAA8A /* Presenters */,
+				AC2C3ACB2B3D76FE004BAA8A /* Routers */,
+				AC2C3ACA2B3D6F70004BAA8A /* Interactors */,
+				AC2C3AC92B3D6F62004BAA8A /* Entities */,
 			);
 			path = ResultPage;
 			sourceTree = "<group>";

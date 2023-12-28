@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 
 protocol HomePresenterProtocol : AnyObject {
-    var view : HomeViewController? { get set }
+    var view : HomeViewProtocol? { get set }
     var interactor : HomeInteractorProtocol? { get set }
     var router : HomeRouterProtocol? { get set }
     func didCreateDestination()
@@ -17,7 +17,7 @@ protocol HomePresenterProtocol : AnyObject {
 }
 
 class HomePresenter : HomePresenterProtocol {
-    weak var view : HomeViewController?
+    weak var view : HomeViewProtocol?
     var interactor : HomeInteractorProtocol?
     var router : HomeRouterProtocol?
     
@@ -26,6 +26,13 @@ class HomePresenter : HomePresenterProtocol {
     }
     
     func didCreateDestination() {
-        router?.presentResultPage()
+        guard 
+            let userDest = interactor?.userDestination,
+            let view = self.view
+        else {
+            fatalError("Error, no destination Found")
+        }
+        
+        router?.presentResultPage(from: view, destination: userDest)
     }
 }

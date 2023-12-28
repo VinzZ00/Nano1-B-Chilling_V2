@@ -9,12 +9,20 @@ import UIKit
 
 protocol HomeRouterProtocol : AnyObject {
     static func createHomeModule() -> UIViewController
-    func presentResultPage()
+    func presentResultPage(from homeView : HomeViewProtocol, destination : Destination)
 }
 
 class HomeRouter : HomeRouterProtocol {
-    func presentResultPage() {
+    func presentResultPage(from homeView : HomeViewProtocol, destination : Destination) {
         // MARK: SETTING RESULT DAN SHOW PAGE
+        print("You're in result page, congrats")
+        
+        print("Destination mood : \(destination.dominatingMood)")
+        
+        destination.spotAvailable.forEach {
+            print("Spot name : \($0.key)")
+        }
+        
     }
     
     static func createHomeModule() -> UIViewController {
