@@ -11,6 +11,7 @@
 		AC2C3AD22B3D82E7004BAA8A /* ResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C3AD12B3D82E7004BAA8A /* ResultInteractor.swift */; };
 		AC2C3AD42B3D830B004BAA8A /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C3AD32B3D830A004BAA8A /* ResultPresenter.swift */; };
 		AC2C3AD62B3D834E004BAA8A /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C3AD52B3D834E004BAA8A /* ResultRouter.swift */; };
+		AC312A732B3E939000486B15 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A722B3E939000486B15 /* PlaceDetail.swift */; };
 		AC319A8C2B397AD7003BD0A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */; };
 		AC319A8E2B397AD7003BD0A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */; };
 		AC319A902B397AD7003BD0A4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8F2B397AD7003BD0A4 /* HomeRouter.swift */; };
@@ -50,6 +51,7 @@
 		AC2C3AD12B3D82E7004BAA8A /* ResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultInteractor.swift; sourceTree = "<group>"; };
 		AC2C3AD32B3D830A004BAA8A /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		AC2C3AD52B3D834E004BAA8A /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
+		AC312A722B3E939000486B15 /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		AC319A882B397AD7003BD0A4 /* B'Chilling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B'Chilling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AC312A712B3E938400486B15 /* Entitiies */ = {
+			isa = PBXGroup;
+			children = (
+				AC312A722B3E939000486B15 /* PlaceDetail.swift */,
+			);
+			path = Entitiies;
+			sourceTree = "<group>";
+		};
 		AC319A7F2B397AD7003BD0A4 = {
 			isa = PBXGroup;
 			children = (
@@ -151,8 +161,8 @@
 		AC319A8A2B397AD7003BD0A4 /* B'Chilling */ = {
 			isa = PBXGroup;
 			children = (
-				AC319AD62B39F204003BD0A4 /* ResultPage */,
 				AC319AC12B398D01003BD0A4 /* HomePage */,
+				AC319AD62B39F204003BD0A4 /* ResultPage */,
 				AC319ABB2B397C05003BD0A4 /* Core */,
 				AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */,
 				AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */,
@@ -277,6 +287,7 @@
 		AC319AD62B39F204003BD0A4 /* ResultPage */ = {
 			isa = PBXGroup;
 			children = (
+				AC312A712B3E938400486B15 /* Entitiies */,
 				AC2C3ACE2B3D7723004BAA8A /* Views */,
 				AC2C3ACC2B3D7703004BAA8A /* Presenters */,
 				AC2C3ACB2B3D76FE004BAA8A /* Routers */,
@@ -424,6 +435,7 @@
 				AC2C3AD22B3D82E7004BAA8A /* ResultInteractor.swift in Sources */,
 				AC319A902B397AD7003BD0A4 /* HomeRouter.swift in Sources */,
 				AC319AC02B3983A6003BD0A4 /* CoreLocationManager.swift in Sources */,
+				AC312A732B3E939000486B15 /* PlaceDetail.swift in Sources */,
 				AC319A8C2B397AD7003BD0A4 /* AppDelegate.swift in Sources */,
 				AC319AC82B3991C1003BD0A4 /* CustomFormCell.swift in Sources */,
 				AC319A8E2B397AD7003BD0A4 /* SceneDelegate.swift in Sources */,

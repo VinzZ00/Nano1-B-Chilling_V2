@@ -12,24 +12,45 @@ protocol locationUpdateProtocol {
     func updateLocation(clLocation : CLLocation) -> Void
 }
 
-class LocationManagerService : NSObject, CLLocationManagerDelegate {
+protocol LocationManagerServiceProtocol {
+    static var shared : LocationManagerService {get}
+    var locationCallBack : locationUpdateProtocol? {get set}
+    func setupLocationManager()
+    func startLocationUpdate()
+    func stopLocationUpdate()
+}
+
+class LocationManagerService : NSObject, CLLocationManagerDelegate, LocationManagerServiceProtocol {
     private let locationManager = CLLocationManager()
-    var locationCallBack : locationUpdateProtocol
+    var locationCallBack : locationUpdateProtocol?
     
-    init(locationCallBack: locationUpdateProtocol) {
-        self.locationCallBack = locationCallBack
+    static var shared : LocationManagerService = LocationManagerService()
+    
+    override init() {
+        super.init()
+        setupLocationManager()
     }
     
     func setupLocationManager() {
-        if locationManager.authorizationStatus !=  .authorizedWhenInUse {
+        if locationManager.authorizationStatus != .authorizedWhenInUse {
             locationManager.requestWhenInUseAuthorization()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
         }
     }
     
+    func startLocationUpdate() {
+        locationManager.startUpdatingLocation()
+    }
+    
+    func stopLocationUpdate() {
+        locationManager.stopUpdatingLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let loc = locations.last {
+        if let loc = locations.last,
+           let locationCallBack = locationCallBack 
+        {
             locationCallBack.updateLocation(clLocation: loc)
         }
     }

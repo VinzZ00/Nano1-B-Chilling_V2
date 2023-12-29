@@ -8,21 +8,31 @@
 import Foundation
 
 protocol ResultPresenterProtocol : AnyObject{
-    var view : resultViewProtocol? { get set }
+    var view : ResultViewProtocol? { get set }
     var interactor : ResultInteractorProtocol? {get set}
     var router : ResultRouterProtocol? {get set}
+    
+    func viewDidLoad()
 }
 
 protocol InteractorOutputProtocol : AnyObject {
-    
+    func didReceiveLocation()
 }
 
 class ResultPresenter : ResultPresenterProtocol {
-    weak var view : resultViewProtocol?
+    weak var view : ResultViewProtocol?
     var interactor: ResultInteractorProtocol?
     var router : ResultRouterProtocol?
+    
+    func viewDidLoad() {
+        if let destination = interactor?.destination {
+            view?.showDestination(dest: destination)
+        }
+    }
 }
 
 extension ResultPresenter : InteractorOutputProtocol {
-    
+    func didReceiveLocation() {
+        
+    }
 }
