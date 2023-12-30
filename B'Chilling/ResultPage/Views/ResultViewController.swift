@@ -31,7 +31,48 @@ class ResultViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        
+        self.navigationController?.navigationBar.isHidden = true
+        view.backgroundColor = .white
+        
+        // MARK: Setup Component
+        startButton.setTitle("Start", for: .normal)
+        startButton.setTitleColor(UIColor(hex: "#35E582", alpha: 1.0), for: .normal)
+        startButton.titleLabel?.backgroundColor = .white
+        
+        suggestOtherButton.setTitle("Suggest Other Place...", for: .normal)
+        suggestOtherButton.setTitleColor(.white, for: .normal)
+        
+        mapview.delegate = self
+        mapview.showsUserLocation = true
+        mapview.userTrackingMode = .followWithHeading
+        
+        
+//        innerView.backgroundColor = UIColor(hex: "#14CAE1", alpha: 1)
+//        innerView.layer.cornerRadius = 43
+        
+        // MARK: Adding to parent View
+        view.addSubview(mapview)
+        
+        // MARK: Layout Setup
+        layoutSetup()
     }
+    
+    func layoutSetup() {
+        view.subviews.forEach{
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        NSLayoutConstraint.activate([
+            mapview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            mapview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mapview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            mapview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+    }
+    
+    
 }
 
 extension ResultViewController : ResultViewProtocol {
@@ -40,7 +81,12 @@ extension ResultViewController : ResultViewProtocol {
         // MARK: setup mapview
         mapview.showsUserLocation = true
         mapview.removeAnnotations(mapview.annotations)
-        mapview.addAnnotation(MKPlacemark(coordinate: dest.FinalSpot.1.coordinate))
+        
+        let ann = MKPointAnnotation()
+        ann.coordinate = dest.FinalSpot.1.coordinate
+        ann.title = dest.FinalSpot.0
+        
+        mapview.addAnnotation(ann)
     }
     
     func showPlaceDetail(placeDetail : PlaceDetail) {
@@ -48,5 +94,13 @@ extension ResultViewController : ResultViewProtocol {
         self.placeNameLabel.text = placeDetail.name
     }
     
-    
+}
+
+extension ResultViewController : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = .systemBlue
+        renderer.lineWidth = 5  
+        return renderer
+    }
 }

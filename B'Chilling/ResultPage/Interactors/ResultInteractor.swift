@@ -17,8 +17,6 @@ protocol ResultInteractorProtocol : AnyObject {
     var locationManager : LocationManagerServiceProtocol {get set}
     var polyline : MKPolyline? {get set}
     
-    
-    func createPlaceDetail()
     func startUpdatingLocation()
     func stopUpdatingLocation()
     func createMKPolyline()
@@ -52,25 +50,20 @@ class ResultInteractor : ResultInteractorProtocol {
             req.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination.FinalSpot.1.coordinate))
             req.transportType = .walking
             direction = MKDirections(request: req)
-            direction.calculate { resp, err in
+            direction.calculate { [unowned self] resp, err in
                 if let err = err {
                     fatalError("error id makeMKPolygon : \(err.localizedDescription)")
                 }
                 
                 self.polyline = resp?.routes.first?.polyline
+                
+                createPlaceDetail()
+                presenter?.didCreatePolyline()
             }
         }
-        presenter?.didCreatePolyline()
     }
     
-    func createPlaceDetail() {
-//        if placeDetail == nil {
-//            guard let name = destination?.spotAvailable.keys.first,
-//                  let picture = UIImage(named: name) else {
-//                fatalError("name or picture is not found")
-//            }
-//            self.placeDetail = PlaceDetail(name: name, Picture: picture)
-//        }
+    private func createPlaceDetail() {
         guard let name = destination?.FinalSpot.0,
               let picture = UIImage(named: name) else {
             fatalError("name or picture is not found")
@@ -92,8 +85,8 @@ class ResultInteractor : ResultInteractorProtocol {
             destination?.FinalSpot = (name, destination! .spotAvailable[name]!)
         }
         
+        // MARK: Will also run the place creation as well
         self.createMKPolyline()
-        self.createPlaceDetail()
     }
     
 }
@@ -102,6 +95,7 @@ extension ResultInteractor : locationUpdateProtocol {
 
     func updateLocation(clLocation: CLLocation) {
         self.userCurrentLocation = clLocation
+        createMKPolyline()
     }
     
     

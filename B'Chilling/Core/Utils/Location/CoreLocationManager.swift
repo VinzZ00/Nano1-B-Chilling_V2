@@ -22,7 +22,11 @@ protocol LocationManagerServiceProtocol {
 
 class LocationManagerService : NSObject, CLLocationManagerDelegate, LocationManagerServiceProtocol {
     private let locationManager = CLLocationManager()
-    var locationCallBack : locationUpdateProtocol?
+    var locationCallBack : locationUpdateProtocol? {
+        didSet {
+            locationManager.delegate = self
+        }
+    }
     
     static var shared : LocationManagerService = LocationManagerService()
     
@@ -36,6 +40,8 @@ class LocationManagerService : NSObject, CLLocationManagerDelegate, LocationMana
             locationManager.requestWhenInUseAuthorization()
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        } else {
+            print("auth Status : \(locationManager.authorizationStatus)")
         }
     }
     
@@ -48,6 +54,7 @@ class LocationManagerService : NSObject, CLLocationManagerDelegate, LocationMana
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Locationn last : \(locations.last)")
         if let loc = locations.last,
            let locationCallBack = locationCallBack 
         {

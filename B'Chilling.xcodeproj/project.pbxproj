@@ -12,6 +12,7 @@
 		AC2C3AD42B3D830B004BAA8A /* ResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C3AD32B3D830A004BAA8A /* ResultPresenter.swift */; };
 		AC2C3AD62B3D834E004BAA8A /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2C3AD52B3D834E004BAA8A /* ResultRouter.swift */; };
 		AC312A732B3E939000486B15 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A722B3E939000486B15 /* PlaceDetail.swift */; };
+		AC312A7C2B3FD57900486B15 /* UIColorHexacode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A7B2B3FD57900486B15 /* UIColorHexacode.swift */; };
 		AC319A8C2B397AD7003BD0A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */; };
 		AC319A8E2B397AD7003BD0A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */; };
 		AC319A902B397AD7003BD0A4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8F2B397AD7003BD0A4 /* HomeRouter.swift */; };
@@ -52,6 +53,7 @@
 		AC2C3AD32B3D830A004BAA8A /* ResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPresenter.swift; sourceTree = "<group>"; };
 		AC2C3AD52B3D834E004BAA8A /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
 		AC312A722B3E939000486B15 /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
+		AC312A7B2B3FD57900486B15 /* UIColorHexacode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexacode.swift; sourceTree = "<group>"; };
 		AC319A882B397AD7003BD0A4 /* B'Chilling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B'Chilling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 			children = (
 				AC319A942B397AD9003BD0A4 /* Assets.xcassets */,
 				AC319A962B397AD9003BD0A4 /* LaunchScreen.storyboard */,
-				AC319A992B397AD9003BD0A4 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -160,6 +161,7 @@
 		AC312A772B3F214300486B15 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AC312A7B2B3FD57900486B15 /* UIColorHexacode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,6 +189,7 @@
 		AC319A8A2B397AD7003BD0A4 /* B'Chilling */ = {
 			isa = PBXGroup;
 			children = (
+				AC319A992B397AD9003BD0A4 /* Info.plist */,
 				AC319AC12B398D01003BD0A4 /* HomePage */,
 				AC319AD62B39F204003BD0A4 /* ResultPage */,
 				AC319ABB2B397C05003BD0A4 /* Core */,
@@ -464,6 +467,7 @@
 				AC319AC82B3991C1003BD0A4 /* CustomFormCell.swift in Sources */,
 				AC319A8E2B397AD7003BD0A4 /* SceneDelegate.swift in Sources */,
 				AC319ACF2B39E740003BD0A4 /* HomePresenter.swift in Sources */,
+				AC312A7C2B3FD57900486B15 /* UIColorHexacode.swift in Sources */,
 				AC2C3AD02B3D829C004BAA8A /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,6 +645,7 @@
 				DEVELOPMENT_TEAM = 382VG5FRJK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "B'Chilling/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Enable location to get your starting location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -673,6 +678,7 @@
 				DEVELOPMENT_TEAM = 382VG5FRJK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "B'Chilling/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Enable location to get your starting location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

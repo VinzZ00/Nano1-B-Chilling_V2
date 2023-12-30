@@ -15,7 +15,7 @@ protocol HomeRouterProtocol : AnyObject {
 class HomeRouter : HomeRouterProtocol {
     func presentResultPage(from homeView : HomeViewProtocol, destination : Destination) {
         // MARK: SETTING RESULT DAN SHOW PAGE
-        var view = ResultRouter.createResultModule(destination: destination)
+        let view = ResultRouter.createResultModule(destination: destination)
         
         guard let homeView = homeView as? HomeViewController else {
             fatalError("home view controller is not detected")

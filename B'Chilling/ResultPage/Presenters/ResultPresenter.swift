@@ -28,6 +28,7 @@ class ResultPresenter : ResultPresenterProtocol {
     var router : ResultRouterProtocol?
     
     func viewDidLoad() {
+        interactor?.startUpdatingLocation()
         interactor?.createMKPolyline()
     }
 }
