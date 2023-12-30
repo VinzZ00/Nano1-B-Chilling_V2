@@ -15,13 +15,13 @@ protocol HomeRouterProtocol : AnyObject {
 class HomeRouter : HomeRouterProtocol {
     func presentResultPage(from homeView : HomeViewProtocol, destination : Destination) {
         // MARK: SETTING RESULT DAN SHOW PAGE
-        print("You're in result page, congrats")
+        var view = ResultRouter.createResultModule(destination: destination)
         
-        print("Destination mood : \(destination.dominatingMood)")
-        
-        destination.spotAvailable.forEach {
-            print("Spot name : \($0.key)")
+        guard let homeView = homeView as? HomeViewController else {
+            fatalError("home view controller is not detected")
         }
+        
+        homeView.navigationController?.pushViewController(view, animated: true)
         
     }
     

@@ -10,10 +10,10 @@ import MapKit
 
 protocol ResultViewProtocol : AnyObject {
     var presenter : ResultPresenterProtocol? { get set }
+    var mapview : MKMapView {get set}
     
     func showDestination(dest : Destination)
-    
-    func updateMap()
+    func showPlaceDetail(placeDetail : PlaceDetail)
 }
 
 class ResultViewController: UIViewController{
@@ -35,12 +35,17 @@ class ResultViewController: UIViewController{
 }
 
 extension ResultViewController : ResultViewProtocol {
-    func updateMap() {
-        // MARK: Update mapview
-    }
     
     func showDestination(dest: Destination) {
         // MARK: setup mapview
+        mapview.showsUserLocation = true
+        mapview.removeAnnotations(mapview.annotations)
+        mapview.addAnnotation(MKPlacemark(coordinate: dest.FinalSpot.1.coordinate))
+    }
+    
+    func showPlaceDetail(placeDetail : PlaceDetail) {
+        self.placeImageView = UIImageView(image: placeDetail.Picture)
+        self.placeNameLabel.text = placeDetail.name
     }
     
     

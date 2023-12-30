@@ -16,7 +16,10 @@ protocol ResultPresenterProtocol : AnyObject{
 }
 
 protocol InteractorOutputProtocol : AnyObject {
-    func didReceiveLocation()
+//    func didReceiveLocation()
+    
+    func didCreatePolyline()
+    func didCreatePlaceDetail()
 }
 
 class ResultPresenter : ResultPresenterProtocol {
@@ -25,14 +28,25 @@ class ResultPresenter : ResultPresenterProtocol {
     var router : ResultRouterProtocol?
     
     func viewDidLoad() {
-        if let destination = interactor?.destination {
-            view?.showDestination(dest: destination)
-        }
+        interactor?.createMKPolyline()
     }
 }
 
 extension ResultPresenter : InteractorOutputProtocol {
-    func didReceiveLocation() {
+    func didCreatePlaceDetail() {
+        if let placeDetail = interactor?.placeDetail {
+            view?.showPlaceDetail(placeDetail : placeDetail)
+        }
+    }
+    
+    func didCreatePolyline() {
+        if let poly = interactor?.polyline {
+            view?.mapview.removeOverlays((view?.mapview.overlays) ?? [])
+            view?.mapview.addOverlay(poly)
+            if let destination = interactor?.destination {
+                view?.showDestination(dest: destination)
+            }
+        }
         
     }
 }

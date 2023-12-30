@@ -138,6 +138,32 @@
 			path = Entitiies;
 			sourceTree = "<group>";
 		};
+		AC312A742B3F047800486B15 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC319A942B397AD9003BD0A4 /* Assets.xcassets */,
+				AC319A962B397AD9003BD0A4 /* LaunchScreen.storyboard */,
+				AC319A992B397AD9003BD0A4 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC312A752B3F048700486B15 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */,
+				AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		AC312A772B3F214300486B15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AC319A7F2B397AD7003BD0A4 = {
 			isa = PBXGroup;
 			children = (
@@ -164,11 +190,6 @@
 				AC319AC12B398D01003BD0A4 /* HomePage */,
 				AC319AD62B39F204003BD0A4 /* ResultPage */,
 				AC319ABB2B397C05003BD0A4 /* Core */,
-				AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */,
-				AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */,
-				AC319A942B397AD9003BD0A4 /* Assets.xcassets */,
-				AC319A962B397AD9003BD0A4 /* LaunchScreen.storyboard */,
-				AC319A992B397AD9003BD0A4 /* Info.plist */,
 			);
 			path = "B'Chilling";
 			sourceTree = "<group>";
@@ -193,6 +214,9 @@
 		AC319ABB2B397C05003BD0A4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				AC312A772B3F214300486B15 /* Extensions */,
+				AC312A752B3F048700486B15 /* Application */,
+				AC312A742B3F047800486B15 /* Resources */,
 				AC319ACA2B39922E003BD0A4 /* Enumerations */,
 				AC319ABC2B397C0B003BD0A4 /* Utils */,
 			);

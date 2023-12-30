@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ResultRouterProtocol : AnyObject {
     
-    static func createResultModule(destination : Destination)
+    static func createResultModule(destination : Destination) -> UIViewController
+    func backToHome(from view : ResultViewProtocol)
 }
 
 class ResultRouter : ResultRouterProtocol {
     
-    static func createResultModule(destination: Destination) {
+    static func createResultModule(destination: Destination) -> UIViewController{
         // MARK: Init
         let router : ResultRouterProtocol = ResultRouter()
         let presenter : ResultPresenterProtocol & InteractorOutputProtocol = ResultPresenter()
@@ -28,10 +30,18 @@ class ResultRouter : ResultRouterProtocol {
         presenter.router = router
         
         interactor.presenter = presenter
-        interactor.destination = destination
         
+        interactor.destination = destination
         view.presenter = presenter
         
+        return view as! ResultViewController
+    }
+    
+    func backToHome(from view: ResultViewProtocol) {
+        guard let view = view as? ResultViewController else {
+            fatalError("this is not a result View Controller")
+        }
+        view.navigationController?.popViewController(animated: true)
     }
     
 }

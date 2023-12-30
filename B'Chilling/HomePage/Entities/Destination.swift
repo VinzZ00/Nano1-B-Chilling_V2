@@ -11,6 +11,14 @@ import CoreLocation
 struct Destination {
     var spotAvailable : [String : CLLocation]
     var dominatingMood : Emotions
+    var FinalSpot : (String, CLLocation)
+    
+    init(spotAvailable: [String : CLLocation], dominatingMood: Emotions) {
+        self.spotAvailable = spotAvailable
+        self.dominatingMood = dominatingMood
+        var key = spotAvailable.keys.first!
+        self.FinalSpot = (key, spotAvailable[key]!)
+    }
     
     
     static var spots : [String: CLLocation] =

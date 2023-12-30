@@ -10,8 +10,8 @@ import UIKit
 
 struct PlaceDetail {
     var name : String
-    var openHour : String
-    var interest : String
+    var openHour : String?
+    var interest : String?
     
     var Picture : UIImage
 }
