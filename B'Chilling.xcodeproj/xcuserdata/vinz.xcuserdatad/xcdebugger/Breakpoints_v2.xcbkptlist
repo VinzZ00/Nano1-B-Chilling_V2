@@ -7,111 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "53DC192C-6CCF-4AFE-B2A9-7B9871E9E706"
-            shouldBeEnabled = "Yes"
+            uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/Core/Utils/Location/CoreLocationManager.swift"
+            filePath = "B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5C527143-E5CF-4DD2-8D14-4C4B7182CA8D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/Core/Utils/Location/CoreLocationManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1A74C923-1C59-4E64-A4EA-98813226BDEE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/Core/Utils/Location/CoreLocationManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C77ECB9A-7C7E-4CE0-AC68-1C77649EEB68"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/Core/Utils/Location/CoreLocationManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "78BFDCC9-2071-446D-9D23-0B8D2E070A4A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "updateLocation(clLocation:)"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "sheetPresentationControllerDidChangeSelectedDetentIdentifier(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "78BFDCC9-2071-446D-9D23-0B8D2E070A4A - be433ba13b2605c0"
+                  uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F - c1b14282146e21d0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.updateLocation(clLocation: __C.CLLocation) -&gt; ()"
+                  symbolName = "B_Chilling.DestinationSheetViewController.sheetPresentationControllerDidChangeSelectedDetentIdentifier(__C.UISheetPresentationController) -&gt; ()"
                   moduleName = "B&apos;Chilling"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "84">
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "588">
                </Location>
                <Location
-                  uuid = "78BFDCC9-2071-446D-9D23-0B8D2E070A4A - be433ba13b2605c0"
+                  uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F - c1b14282146e20b9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.updateLocation(clLocation: __C.CLLocation) -&gt; ()"
+                  symbolName = "B_Chilling.DestinationSheetViewController.sheetPresentationControllerDidChangeSelectedDetentIdentifier(__C.UISheetPresentationController) -&gt; ()"
                   moduleName = "B&apos;Chilling"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
+                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "60">
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "588">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -119,590 +55,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "27AC6561-28F8-4022-A19C-43EE6B4902AE"
+            uuid = "22277C39-C2E4-4B0B-8D50-BAF425D9166D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "presentationControllerShouldDismiss(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DBDBC754-278D-40E7-AF32-E150A6F2DB9D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
+            filePath = "B&apos;Chilling/ResultPage/Component/CustomSheet.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "updateLocation(clLocation:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "27AC6561-28F8-4022-A19C-43EE6B4902AE - be433ba13b2605a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.updateLocation(clLocation: __C.CLLocation) -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  uuid = "27AC6561-28F8-4022-A19C-43EE6B4902AE - be433ba13b2605a1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.updateLocation(clLocation: __C.CLLocation) -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8F5AE9CE-E3FB-4C25-8A19-ED03079B1837"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "655FAA5C-4893-4279-9A3A-9D25BE01D3FF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7874684B-F042-405B-BFCA-368315762014"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E7AE36DD-6D6D-42BB-9DAC-ECA351B98C9F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E7AE36DD-6D6D-42BB-9DAC-ECA351B98C9F - e17cddde9a0f60e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "228">
-               </Location>
-               <Location
-                  uuid = "E7AE36DD-6D6D-42BB-9DAC-ECA351B98C9F - e17cddde9a0f60e6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "344">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C6711C75-0B32-461D-A4BE-228BB2C9A76E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "428A1EE2-2D5C-497A-BD9A-D71CD984B586"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C186A530-6C74-45A7-9076-A492F7644B52"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C186A530-6C74-45A7-9076-A492F7644B52 - e17cddde9a0f6181"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "748">
-               </Location>
-               <Location
-                  uuid = "C186A530-6C74-45A7-9076-A492F7644B52 - eabe1889c8ffc2fb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  uuid = "C186A530-6C74-45A7-9076-A492F7644B52 - e17cddde9a0f6181"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "728">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "02826BD7-5A42-48A1-93A2-8356304E0AF7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DACEF966-8F1E-429F-BC9B-2B23DF7F533C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DACEF966-8F1E-429F-BC9B-2B23DF7F533C - eabe1889c8ffc2b5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "DACEF966-8F1E-429F-BC9B-2B23DF7F533C - eabe1889c8ffc2b5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "268">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C72E575A-D01F-4E4E-BC04-0A6C135F2CDC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C72E575A-D01F-4E4E-BC04-0A6C135F2CDC - eabe1889c8ffc2da"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "C72E575A-D01F-4E4E-BC04-0A6C135F2CDC - eabe1889c8ffc2da"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "212">
-               </Location>
-               <Location
-                  uuid = "C72E575A-D01F-4E4E-BC04-0A6C135F2CDC - eabe1889c8ffc2da"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.MKDirectionsResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in B_Chilling.ResultInteractor.createMKPolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "220">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2FC23910-46AA-44D0-8D05-B4BA14979742"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A7132855-E423-4295-98A5-258393E8073A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E13D2624-661F-4F80-81BB-E03E717323D0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Interactors/ResultInteractor.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "createMKPolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CCDADF2D-FD4F-40A9-B2E6-AE9DA8BAF2DE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CCDADF2D-FD4F-40A9-B2E6-AE9DA8BAF2DE - 538f90ad17d5439"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultPresenter.didCreatePolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "CCDADF2D-FD4F-40A9-B2E6-AE9DA8BAF2DE - 538f90ad17d5439"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultPresenter.didCreatePolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "252">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8925AF02-E952-4E36-AA3F-B77624302A76"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AF17320B-41F5-436A-971C-3C812A7D6876"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9D000FFE-208C-46B6-9D05-D34527CECBD6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CCEAEE8C-143A-4A24-AADA-E931BDDDA9CD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4833C29C-DD01-404F-BA17-827FECEF27C6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "didCreatePolyline()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4833C29C-DD01-404F-BA17-827FECEF27C6 - 538f90ad17d545a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultPresenter.didCreatePolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "956">
-               </Location>
-               <Location
-                  uuid = "4833C29C-DD01-404F-BA17-827FECEF27C6 - 538f90ad17d545a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.ResultPresenter.didCreatePolyline() -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "1316">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "306E20DD-97EE-4D2C-A47B-596CD4CC7FF2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Presenters/ResultPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "didCreatePolyline()"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "panGesture(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

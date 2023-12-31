@@ -67,6 +67,7 @@ class CustomFormCell: UIView, UITextFieldDelegate {
         setup()
     }
     
+    
     @objc func handleTapGest(_ sender : UIGestureRecognizer) {
         print("tapped")
         

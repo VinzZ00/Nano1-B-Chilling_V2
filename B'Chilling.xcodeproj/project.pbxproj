@@ -14,6 +14,7 @@
 		AC312A732B3E939000486B15 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A722B3E939000486B15 /* PlaceDetail.swift */; };
 		AC312A7C2B3FD57900486B15 /* UIColorHexacode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A7B2B3FD57900486B15 /* UIColorHexacode.swift */; };
 		AC312A7E2B405AD400486B15 /* DestinationSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A7D2B405AD400486B15 /* DestinationSheetViewController.swift */; };
+		AC312A812B41743F00486B15 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC312A802B41743F00486B15 /* CustomSheet.swift */; };
 		AC319A8C2B397AD7003BD0A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */; };
 		AC319A8E2B397AD7003BD0A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */; };
 		AC319A902B397AD7003BD0A4 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319A8F2B397AD7003BD0A4 /* HomeRouter.swift */; };
@@ -56,6 +57,7 @@
 		AC312A722B3E939000486B15 /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		AC312A7B2B3FD57900486B15 /* UIColorHexacode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexacode.swift; sourceTree = "<group>"; };
 		AC312A7D2B405AD400486B15 /* DestinationSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSheetViewController.swift; sourceTree = "<group>"; };
+		AC312A802B41743F00486B15 /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		AC319A882B397AD7003BD0A4 /* B'Chilling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "B'Chilling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC319A8B2B397AD7003BD0A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC319A8D2B397AD7003BD0A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2C3ACF2B3D829C004BAA8A /* ResultViewController.swift */,
-				AC312A7D2B405AD400486B15 /* DestinationSheetViewController.swift */,
+				AC312A822B4193D400486B15 /* Deprecated */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,8 +174,17 @@
 		AC312A7F2B40983800486B15 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				AC312A802B41743F00486B15 /* CustomSheet.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		AC312A822B4193D400486B15 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				AC312A7D2B405AD400486B15 /* DestinationSheetViewController.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		AC319A7F2B397AD7003BD0A4 = {
@@ -466,6 +477,7 @@
 			files = (
 				AC2C3AD62B3D834E004BAA8A /* ResultRouter.swift in Sources */,
 				AC319AD22B39E824003BD0A4 /* homeInteractor.swift in Sources */,
+				AC312A812B41743F00486B15 /* CustomSheet.swift in Sources */,
 				AC319ACC2B399235003BD0A4 /* Emotions.swift in Sources */,
 				AC319AD52B39ED02003BD0A4 /* Destination.swift in Sources */,
 				AC319AC52B398E47003BD0A4 /* HomeViewController.swift in Sources */,

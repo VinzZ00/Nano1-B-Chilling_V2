@@ -27,6 +27,7 @@ class ResultViewController: UIViewController{
     var suggestOtherButton : UIButton = UIButton()
     var ArrowButton : UIButton = UIButton()
     var mapview : MKMapView = MKMapView()
+    var sheet : CustomSheet = CustomSheet()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,15 +48,18 @@ class ResultViewController: UIViewController{
         mapview.showsUserLocation = true
         mapview.userTrackingMode = .followWithHeading
         
+        sheet.resultviewController = self
+        
         
 //        innerView.backgroundColor = UIColor(hex: "#14CAE1", alpha: 1)
 //        innerView.layer.cornerRadius = 43
         
         // MARK: Adding to parent View
         view.addSubview(mapview)
-        
+        view.addSubview(sheet)
         // MARK: Layout Setup
         layoutSetup()
+        
     }
     
     func layoutSetup() {
@@ -68,6 +72,11 @@ class ResultViewController: UIViewController{
             mapview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mapview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            sheet.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            sheet.heightAnchor.constraint(equalToConstant: 488),
+            sheet.widthAnchor.constraint(equalToConstant: view.bounds.width),
+            sheet.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
         
     }
@@ -76,6 +85,7 @@ class ResultViewController: UIViewController{
 }
 
 extension ResultViewController : ResultViewProtocol {
+    
     
     func showDestination(dest: Destination) {
         // MARK: setup mapview
@@ -92,6 +102,8 @@ extension ResultViewController : ResultViewProtocol {
     func showPlaceDetail(placeDetail : PlaceDetail) {
         self.placeImageView = UIImageView(image: placeDetail.Picture)
         self.placeNameLabel.text = placeDetail.name
+        
+        self.sheet.placeDetail = placeDetail
     }
     
 }
