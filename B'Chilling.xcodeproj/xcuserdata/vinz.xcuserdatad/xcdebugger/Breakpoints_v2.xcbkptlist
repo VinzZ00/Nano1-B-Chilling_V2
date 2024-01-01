@@ -7,80 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F"
+            uuid = "98CF516A-EBE1-439C-A9DA-695EE3EBDBB3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
+            filePath = "B&apos;Chilling/ResultPage/Views/ResultViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "sheetPresentationControllerDidChangeSelectedDetentIdentifier(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F - c1b14282146e21d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.DestinationSheetViewController.sheetPresentationControllerDidChangeSelectedDetentIdentifier(__C.UISheetPresentationController) -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "588">
-               </Location>
-               <Location
-                  uuid = "432C83CE-F5F2-4D70-AF4B-C51948E2E86F - c1b14282146e20b9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "B_Chilling.DestinationSheetViewController.sheetPresentationControllerDidChangeSelectedDetentIdentifier(__C.UISheetPresentationController) -&gt; ()"
-                  moduleName = "B&apos;Chilling"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vinz/Desktop/Portofolio/B&apos;Chilling/B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "117"
-                  endingLineNumber = "117"
-                  offsetFromSymbolStart = "588">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "22277C39-C2E4-4B0B-8D50-BAF425D9166D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Views/DestinationSheetViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "presentationControllerShouldDismiss(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DBDBC754-278D-40E7-AF32-E150A6F2DB9D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "B&apos;Chilling/ResultPage/Component/CustomSheet.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "panGesture(_:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

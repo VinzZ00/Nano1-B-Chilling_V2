@@ -52,7 +52,7 @@ class ResultInteractor : ResultInteractorProtocol {
             direction = MKDirections(request: req)
             direction.calculate { [unowned self] resp, err in
                 if let err = err {
-                    fatalError("error id makeMKPolygon : \(err.localizedDescription)")
+                    return
                 }
                 
                 self.polyline = resp?.routes.first?.polyline

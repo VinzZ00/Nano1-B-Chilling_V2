@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreLocation.CLMonitor
+
 
 class CustomSheet: UIView {
-
-    var placeDetail: PlaceDetail?
     
+    var placeDetail: PlaceDetail?
     var sheetInitLabel : UILabel = UILabel()
     var route: [String]?
     var modalDismissImage : UIImageView = UIImageView()
@@ -21,6 +22,7 @@ class CustomSheet: UIView {
     private var isSmall = true
     private var isRotated = false
     private var height : NSLayoutConstraint?
+    private var isResizing : Bool = false
     
     var resultviewController : ResultViewProtocol?
     
@@ -28,6 +30,7 @@ class CustomSheet: UIView {
         super.init(frame: frame)
         setup()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -44,13 +47,16 @@ class CustomSheet: UIView {
         modalDismissImage.image = UIImage(systemName: "chevron.up")?.withRenderingMode(.alwaysTemplate)
         modalDismissImage.tintColor = .black
         
-        placeImage.image = placeDetail?.Picture
+        placeImage.image = placeDetail?.Picture ?? UIImage(systemName: "photo.artframe")
         placeImage.layer.cornerRadius = 23
         placeImage.contentMode = .scaleToFill
         placeImage.clipsToBounds = true
         
-        placeName.text = placeDetail?.name
+        placeName.text = placeDetail?.name ?? "Place Name"
         placeName.font = .systemFont(ofSize: 36, weight: .semibold)
+        placeName.lineBreakMode = .byWordWrapping
+        placeName.numberOfLines = 0
+        placeName.textColor = .black
         
         // TODO: Table View Here
         
@@ -72,6 +78,10 @@ class CustomSheet: UIView {
     
     func sheetLayoutSetup() {
         if isSmall {
+            subviews.forEach { v in
+                v.removeFromSuperview()
+            }
+            
             // MARK: If Rotated then return it to init state
             if isRotated {
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
@@ -104,6 +114,50 @@ class CustomSheet: UIView {
             self.height = self.heightAnchor.constraint(equalToConstant: 131)
             height!.isActive = true
 
+        } else {
+            subviews.forEach{
+                $0.removeFromSuperview()
+            }
+            
+            self.addSubview(modalDismissImage)
+            self.addSubview(placeImage)
+            self.addSubview(placeName)
+            //MARK: Add table view here
+            self.addSubview(endRouteButton)
+            
+            //MARK: add constraint
+            
+            self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+            placeImage.backgroundColor = .red
+            
+            NSLayoutConstraint.activate([
+                
+                // Modal Dismiss
+                modalDismissImage.widthAnchor.constraint(equalToConstant: 52),
+                modalDismissImage.heightAnchor.constraint(equalToConstant: 29),
+                modalDismissImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 11.4),
+                modalDismissImage.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                
+                // Place Image
+                placeImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 41),
+                placeImage.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 46),
+                placeImage.widthAnchor.constraint(equalToConstant: 108),
+                
+                // Place Name
+                //TODO: Fix this constraint
+                placeName.leadingAnchor.constraint(equalTo: placeImage.trailingAnchor, constant: 23.5),
+                placeName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 65.5),
+                placeName.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 54),
+                placeName.centerYAnchor.constraint(equalTo: placeImage.centerYAnchor),
+                placeName.heightAnchor.constraint(equalToConstant: 86),
+                
+                // End Route Button
+                endRouteButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 53),
+                endRouteButton.widthAnchor.constraint(equalToConstant: 155),
+                endRouteButton.heightAnchor.constraint(equalToConstant: 40),
+                endRouteButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+            ])
+            
         }
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
@@ -118,35 +172,36 @@ class CustomSheet: UIView {
             guard let height = self.height else { fatalError("Height constant is nill") }
             var nHeight = height.constant
             let translation = sender.translation(in: self)
-            nHeight += (-translation.y/6)
-            print("translation : \(height.constant)")
-            // Set the new height for the view
+            let velocity = sender.velocity(in: self)
+            nHeight += (-translation.y)
             
-            
-            
-            if nHeight < 131 {
-                self.height?.isActive = false
-                self.height?.constant = 131
-                self.height?.isActive = true
-            } else if nHeight > 488 {
-                self.height?.isActive = false
-                self.height?.constant = 488
-                self.height?.isActive = true
-            } else {
-                self.height?.isActive = false
-                self.height?.constant = nHeight
-                self.height?.isActive = true
+            if abs(velocity.y) < 200 {
+                if nHeight < 131 {
+                    self.height?.constant = 131
+                    self.height?.isActive = false
+                    self.height?.isActive = true
+                } else if nHeight > 488 {
+                    
+                    self.height?.constant = 488
+                    self.height?.isActive = false
+                    self.height?.isActive = true
+                } else {
+                    
+                    self.height?.constant = nHeight
+                    self.height?.isActive = false
+                    self.height?.isActive = true
+                }
             }
             
-            self.layoutIfNeeded()
+            sender.setTranslation(.zero, in: self)
         case .ended :
-            
             guard let height = height?.constant else { return  }
             
             if height > (131 + ((488 - 131) / 2)) {
-                self.height?.isActive = false
-                self.height?.constant = 488
-                self.height?.isActive = true
+                
+                let last = isSmall
+                
+                
                 
                 self.layoutIfNeeded()
                 
@@ -154,19 +209,49 @@ class CustomSheet: UIView {
                     self.modalDismissImage.transform = CGAffineTransform(rotationAngle: .pi)
                 }
                 
+                
+                
+                if !isSmall {
+                    self.height?.isActive = false
+                    self.height?.constant = 488
+                    self.height?.isActive = true
+                }
+                
                 isRotated = true
-                isSmall = false
+                if self.height!.constant >= 131 {
+                    isSmall = false
+                }
+                
+                if last != self.isSmall {
+                    sheetLayoutSetup()
+                }
+                
             } else {
-                self.height?.isActive = false
-                self.height?.constant = 131
-                self.height?.isActive = true
+                
+                let last = self.isSmall
+                
+                
                 
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
                     self.modalDismissImage.transform = CGAffineTransform.identity
                 }
                 
+                
+                if isSmall {
+                    self.height?.isActive = false
+                    self.height?.constant = 131
+                    self.height?.isActive = true
+                }
+                
                 isRotated = false
-                isSmall = true
+                if self.height!.constant < 488 {
+                    isSmall = true
+                }
+                
+                if last != self.isSmall {
+                    sheetLayoutSetup()
+                }
+                
             }
         default :
             break

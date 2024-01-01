@@ -77,6 +77,7 @@
 		AC319ACE2B39E740003BD0A4 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		AC319AD12B39E824003BD0A4 /* homeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeInteractor.swift; sourceTree = "<group>"; };
 		AC319AD42B39ED02003BD0A4 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		AC9C3AAE2B4312B400A6B8DB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +191,7 @@
 		AC319A7F2B397AD7003BD0A4 = {
 			isa = PBXGroup;
 			children = (
+				AC9C3AAE2B4312B400A6B8DB /* MyPlayground.playground */,
 				AC319A8A2B397AD7003BD0A4 /* B'Chilling */,
 				AC319AA12B397AD9003BD0A4 /* B'ChillingTests */,
 				AC319AAB2B397AD9003BD0A4 /* B'ChillingUITests */,
