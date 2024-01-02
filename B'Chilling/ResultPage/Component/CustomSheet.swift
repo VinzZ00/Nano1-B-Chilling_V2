@@ -8,10 +8,39 @@
 import UIKit
 import CoreLocation.CLMonitor
 
+protocol CustomSheetDelegate {
+    func endRouteButtonHandle(_ sender : UIButton)
+}
+
+extension CustomSheet : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return routes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+}
+
 
 class CustomSheet: UIView {
     
-    var placeDetail: PlaceDetail?
+    
+    private let tableview : UITableView = UITableView()
+    
+    var routes : [String] {
+        didSet {
+            tableview.reloadData()
+        }
+    }
+    var delegate : CustomSheetDelegate?
+    var placeDetail: PlaceDetail? {
+        didSet {
+            self.placeName.text = placeDetail?.name
+            self.placeImage.image = placeDetail?.Picture
+        }
+    }
+    
     var sheetInitLabel : UILabel = UILabel()
     var route: [String]?
     var modalDismissImage : UIImageView = UIImageView()
@@ -24,7 +53,7 @@ class CustomSheet: UIView {
     private var height : NSLayoutConstraint?
     private var isResizing : Bool = false
     
-    var resultviewController : ResultViewProtocol?
+//    var resultviewController : ResultViewProtocol?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,6 +72,7 @@ class CustomSheet: UIView {
         // MARK: Setup Component
         sheetInitLabel.text = "Direction details"
         sheetInitLabel.font = .systemFont(ofSize: 18, weight: .medium)
+        sheetInitLabel.textColor = .black
         
         modalDismissImage.image = UIImage(systemName: "chevron.up")?.withRenderingMode(.alwaysTemplate)
         modalDismissImage.tintColor = .black
@@ -52,7 +82,7 @@ class CustomSheet: UIView {
         placeImage.contentMode = .scaleToFill
         placeImage.clipsToBounds = true
         
-        placeName.text = placeDetail?.name ?? "Place Name"
+        placeName.text = placeDetail?.name
         placeName.font = .systemFont(ofSize: 36, weight: .semibold)
         placeName.lineBreakMode = .byWordWrapping
         placeName.numberOfLines = 0
@@ -64,6 +94,8 @@ class CustomSheet: UIView {
         endRouteButton.backgroundColor = .init(hex: "#FF5757")
         endRouteButton.titleLabel?.textColor = .white
         endRouteButton.addTarget(self, action: #selector(endRouteButtonHandler(_:)), for: .touchUpInside)
+        endRouteButton.layer.cornerRadius = 13.5
+        
         
 //        // MARK: Adding Component
 //        view.addSubview(modalDismissButton)
@@ -125,11 +157,12 @@ class CustomSheet: UIView {
             //MARK: Add table view here
             self.addSubview(endRouteButton)
             
+            
+            
             //MARK: add constraint
             
-            self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-            placeImage.backgroundColor = .red
-            
+            self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false
+            }
             NSLayoutConstraint.activate([
                 
                 // Modal Dismiss
@@ -140,24 +173,24 @@ class CustomSheet: UIView {
                 
                 // Place Image
                 placeImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 41),
-                placeImage.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 46),
-                placeImage.widthAnchor.constraint(equalToConstant: 108),
+                placeImage.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 14.6),
+                placeImage.heightAnchor.constraint(equalToConstant: 86),
+                placeImage.widthAnchor.constraint(equalToConstant: 86),
                 
                 // Place Name
                 //TODO: Fix this constraint
                 placeName.leadingAnchor.constraint(equalTo: placeImage.trailingAnchor, constant: 23.5),
                 placeName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 65.5),
-                placeName.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 54),
+                //                    placeName.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 54),
                 placeName.centerYAnchor.constraint(equalTo: placeImage.centerYAnchor),
-                placeName.heightAnchor.constraint(equalToConstant: 86),
+                
                 
                 // End Route Button
-                endRouteButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 53),
+                endRouteButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -33),
                 endRouteButton.widthAnchor.constraint(equalToConstant: 155),
                 endRouteButton.heightAnchor.constraint(equalToConstant: 40),
                 endRouteButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ])
-            
         }
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
@@ -175,20 +208,18 @@ class CustomSheet: UIView {
             let velocity = sender.velocity(in: self)
             nHeight += (-translation.y)
             
-            if abs(velocity.y) < 200 {
+            if abs(velocity.y) < 500 {
                 if nHeight < 131 {
-                    self.height?.constant = 131
                     self.height?.isActive = false
+                    self.height?.constant = 131
                     self.height?.isActive = true
                 } else if nHeight > 488 {
-                    
-                    self.height?.constant = 488
                     self.height?.isActive = false
+                    self.height?.constant = 488
                     self.height?.isActive = true
                 } else {
-                    
-                    self.height?.constant = nHeight
                     self.height?.isActive = false
+                    self.height?.constant = nHeight
                     self.height?.isActive = true
                 }
             }
@@ -230,8 +261,6 @@ class CustomSheet: UIView {
                 
                 let last = self.isSmall
                 
-                
-                
                 UIView.animate(withDuration: 1, delay: 0, options: .curveEaseInOut) {
                     self.modalDismissImage.transform = CGAffineTransform.identity
                 }
@@ -259,13 +288,7 @@ class CustomSheet: UIView {
     }
     
     @objc func endRouteButtonHandler(_ sender : UIButton) {
-        print("go back to home page")
-        guard let vc = resultviewController as? UIViewController else {
-            fatalError("ResultViewController is not registered")
-        }
-        if let navController = vc.navigationController {
-            navController.dismiss(animated: true, completion: nil)
-        }
+        delegate?.endRouteButtonHandle(sender)
     }
 }
 

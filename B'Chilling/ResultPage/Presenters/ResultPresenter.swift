@@ -30,6 +30,7 @@ class ResultPresenter : ResultPresenterProtocol {
     func viewDidLoad() {
         interactor?.startUpdatingLocation()
         interactor?.createMKPolyline()
+            
     }
 }
 

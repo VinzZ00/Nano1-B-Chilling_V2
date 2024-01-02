@@ -42,7 +42,7 @@ class ResultInteractor : ResultInteractorProtocol {
     }
     
     func createMKPolyline() {
-        var req = MKDirections.Request()
+        let req = MKDirections.Request()
         var direction : MKDirections
         if let userCurrentLocation = userCurrentLocation,
            let destination = destination {
@@ -51,7 +51,7 @@ class ResultInteractor : ResultInteractorProtocol {
             req.transportType = .walking
             direction = MKDirections(request: req)
             direction.calculate { [unowned self] resp, err in
-                if let err = err {
+                if err != nil {
                     return
                 }
                 

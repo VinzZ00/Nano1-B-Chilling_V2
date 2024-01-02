@@ -21,38 +21,37 @@ class ResultViewController: UIViewController{
     var presenter: ResultPresenterProtocol?
     
     // MARK: Component
-    var placeImageView : UIImageView = UIImageView()
-    var placeNameLabel : UILabel = UILabel()
-    var startButton : UIButton = UIButton()
-    var suggestOtherButton : UIButton = UIButton()
-    var ArrowButton : UIButton = UIButton()
     var mapview : MKMapView = MKMapView()
     var sheet : CustomSheet = CustomSheet()
+    let navigationTitleLogo = UIImageView(image: UIImage(named: "LongLogo"))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        navigationTitleLogo.contentMode = .scaleAspectFit
+        navigationTitleLogo.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            // Height and width of the logo
+            navigationTitleLogo.widthAnchor.constraint(equalToConstant: 246.45),
+            navigationTitleLogo.heightAnchor.constraint(equalToConstant: 36.93)
+        ])
+        
+        // Setup the navigationbar
+        navigationItem.hidesBackButton = true
+        navigationItem.titleView = navigationTitleLogo
+        
+
         view.backgroundColor = .white
         
         // MARK: Setup Component
-        startButton.setTitle("Start", for: .normal)
-        startButton.setTitleColor(UIColor(hex: "#35E582", alpha: 1.0), for: .normal)
-        startButton.titleLabel?.backgroundColor = .white
-        
-        suggestOtherButton.setTitle("Suggest Other Place...", for: .normal)
-        suggestOtherButton.setTitleColor(.white, for: .normal)
-        
         mapview.delegate = self
         mapview.showsUserLocation = true
         mapview.userTrackingMode = .followWithHeading
         
-        sheet.resultviewController = self
-        
-        
-//        innerView.backgroundColor = UIColor(hex: "#14CAE1", alpha: 1)
-//        innerView.layer.cornerRadius = 43
+        // Setting sheet Delegate to handle the tap on the buttons
+        sheet.delegate = self
         
         // MARK: Adding to parent View
         view.addSubview(mapview)
@@ -74,7 +73,7 @@ class ResultViewController: UIViewController{
             mapview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             sheet.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            sheet.heightAnchor.constraint(equalToConstant: 488),
+            sheet.heightAnchor.constraint(equalToConstant: 488),
             sheet.widthAnchor.constraint(equalToConstant: view.bounds.width),
             sheet.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
@@ -100,9 +99,6 @@ extension ResultViewController : ResultViewProtocol {
     }
     
     func showPlaceDetail(placeDetail : PlaceDetail) {
-        self.placeImageView = UIImageView(image: placeDetail.Picture)
-        self.placeNameLabel.text = placeDetail.name
-        
         self.sheet.placeDetail = placeDetail
     }
     
@@ -115,4 +111,15 @@ extension ResultViewController : MKMapViewDelegate {
         renderer.lineWidth = 5  
         return renderer
     }
+}
+
+extension ResultViewController : CustomSheetDelegate {
+    func endRouteButtonHandle(_ sender: UIButton) {
+        print("go back to home page")
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+        }
+    }
+    
+    
 }
