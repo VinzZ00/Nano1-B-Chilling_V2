@@ -17,7 +17,7 @@ protocol CustomSheetDelegate {
 
 class CustomSheet: UIView {
     // Computed Property
-    var routes : [String]? 
+    var routes : [String]?
     var placeDetail: PlaceDetail? {
         didSet {
             self.placeName.text = placeDetail?.name
@@ -187,14 +187,14 @@ class CustomSheet: UIView {
                 
                 // Horizontal Line
                 horizontalLine.topAnchor.constraint(equalTo: placeImage.bottomAnchor, constant: 17.5),
-                horizontalLine.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 19),
-                horizontalLine.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 18),
                 horizontalLine.heightAnchor.constraint(equalToConstant: 1),
+                horizontalLine.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.9),
+                horizontalLine.centerXAnchor.constraint(equalTo: self.centerXAnchor),
                 
 //                // Table View
                 tableview.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15.5),
-                tableview.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                tableview.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                tableview.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
+                tableview.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
                 tableview.heightAnchor.constraint(equalToConstant: 162),
                 
                 // End Route Button
@@ -308,7 +308,7 @@ extension CustomSheet : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard 
+        guard
             let cell = tableview.dequeueReusableCell(withIdentifier: "routeCell") as? RouteTableViewCell
         else {
             fatalError("cell can't be convert into routeTableViewCell")
@@ -320,7 +320,7 @@ extension CustomSheet : UITableViewDataSource {
             return cell
         }
         
-        cell.routeDirectionText = "\(indexPath.row). \(routes[indexPath.row])"
+        cell.routeDirectionText = "\(indexPath.row + 1). \(routes[indexPath.row])"
         return cell
     }
 }

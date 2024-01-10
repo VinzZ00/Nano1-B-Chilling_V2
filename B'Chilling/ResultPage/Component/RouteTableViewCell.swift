@@ -10,12 +10,12 @@ import UIKit
 class RouteTableViewCell: UITableViewCell {
 
     // MARK: Component
-    let horizontalLine : UIView = {
-        let view = UIView()
-        view.backgroundColor = .black
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+//    let horizontalLine : UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .black
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
 
     let routeDirectionLabel : UILabel = {
         var l = UILabel()
@@ -43,19 +43,19 @@ class RouteTableViewCell: UITableViewCell {
         
         // Adding to parent view
         contentView.addSubview(routeDirectionLabel)
-        contentView.addSubview(horizontalLine)
+//        contentView.addSubview(horizontalLine)
         
         // Setup layout
         // Route Direction Label
         routeDirectionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
         routeDirectionLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
         routeDirectionLabel.heightAnchor.constraint(equalToConstant: 42).isActive = true
-        routeDirectionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15.5).isActive = true
         
         // Horizontal Line
-        horizontalLine.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        horizontalLine.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        horizontalLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
+//        horizontalLine.topAnchor.constraint(equalTo: routeDirectionLabel.bottomAnchor, constant: 16).isActive = true
+//        horizontalLine.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+//        horizontalLine.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+//        horizontalLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
         
         
     }
