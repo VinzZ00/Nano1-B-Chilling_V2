@@ -16,10 +16,11 @@ protocol ResultInteractorProtocol : AnyObject {
     var placeDetail : PlaceDetail? {get set}
     var locationManager : LocationManagerServiceProtocol {get set}
     var polyline : MKPolyline? {get set}
+    var routes : [String]? { get set }
     
     func startUpdatingLocation()
     func stopUpdatingLocation()
-    func createMKPolyline()
+    func createDirection()
 }
 
 class ResultInteractor : ResultInteractorProtocol {
@@ -31,6 +32,7 @@ class ResultInteractor : ResultInteractorProtocol {
     var destination : Destination?
     var placeDetail : PlaceDetail?
     var polyline : MKPolyline?
+    var routes : [String]?
     
     func startUpdatingLocation() {
         locationManager.locationCallBack = self
@@ -41,7 +43,7 @@ class ResultInteractor : ResultInteractorProtocol {
         locationManager.stopLocationUpdate()
     }
     
-    func createMKPolyline() {
+    func createDirection() {
         let req = MKDirections.Request()
         var direction : MKDirections
         if let userCurrentLocation = userCurrentLocation,
@@ -52,13 +54,15 @@ class ResultInteractor : ResultInteractorProtocol {
             direction = MKDirections(request: req)
             direction.calculate { [unowned self] resp, err in
                 if err != nil {
+                    print("error \(err?.localizedDescription)")
                     return
                 }
                 
                 self.polyline = resp?.routes.first?.polyline
+                self.routes = resp?.routes.first?.steps.map{ $0.instructions }
                 
                 createPlaceDetail()
-                presenter?.didCreatePolyline()
+                presenter?.didCreateDirection()
             }
         }
     }
@@ -86,7 +90,7 @@ class ResultInteractor : ResultInteractorProtocol {
         }
         
         // MARK: Will also run the place creation as well
-        self.createMKPolyline()
+        self.createDirection()
     }
     
 }
@@ -95,7 +99,7 @@ extension ResultInteractor : locationUpdateProtocol {
 
     func updateLocation(clLocation: CLLocation) {
         self.userCurrentLocation = clLocation
-        createMKPolyline()
+        createDirection()
     }
     
     

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol ResultRouterProtocol : AnyObject {
-    
+
     static func createResultModule(destination : Destination) -> UIViewController
     func backToHome(from view : ResultViewProtocol)
 }
@@ -30,7 +30,7 @@ class ResultRouter : ResultRouterProtocol {
         presenter.router = router
         
         interactor.presenter = presenter
-        
+            
         interactor.destination = destination
         view.presenter = presenter
         
@@ -41,7 +41,9 @@ class ResultRouter : ResultRouterProtocol {
         guard let view = view as? ResultViewController else {
             fatalError("this is not a result View Controller")
         }
-        view.navigationController?.popViewController(animated: true)
+        view
+            .navigationController?
+            .popViewController(animated: true)
     }
     
 }

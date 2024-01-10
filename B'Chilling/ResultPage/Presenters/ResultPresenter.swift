@@ -18,7 +18,7 @@ protocol ResultPresenterProtocol : AnyObject{
 protocol InteractorOutputProtocol : AnyObject {
 //    func didReceiveLocation()
     
-    func didCreatePolyline()
+    func didCreateDirection()
     func didCreatePlaceDetail()
 }
 
@@ -29,8 +29,7 @@ class ResultPresenter : ResultPresenterProtocol {
     
     func viewDidLoad() {
         interactor?.startUpdatingLocation()
-        interactor?.createMKPolyline()
-            
+        interactor?.createDirection()
     }
 }
 
@@ -41,14 +40,13 @@ extension ResultPresenter : InteractorOutputProtocol {
         }
     }
     
-    func didCreatePolyline() {
-        if let poly = interactor?.polyline {
-            view?.mapview.removeOverlays((view?.mapview.overlays) ?? [])
-            view?.mapview.addOverlay(poly)
-            if let destination = interactor?.destination {
-                view?.showDestination(dest: destination)
-            }
+    func didCreateDirection() {
+        if 
+            let poly = interactor?.polyline,
+            let destination = interactor?.destination,
+            let routes = interactor?.routes
+        {
+            view?.showDestination(dest: destination, poly: poly, routes: routes)
         }
-        
     }
 }

@@ -12,28 +12,12 @@ protocol CustomSheetDelegate {
     func endRouteButtonHandle(_ sender : UIButton)
 }
 
-extension CustomSheet : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return routes.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
-}
+
 
 
 class CustomSheet: UIView {
-    
-    
-    private let tableview : UITableView = UITableView()
-    
-    var routes : [String] {
-        didSet {
-            tableview.reloadData()
-        }
-    }
-    var delegate : CustomSheetDelegate?
+    // Computed Property
+    var routes : [String]? 
     var placeDetail: PlaceDetail? {
         didSet {
             self.placeName.text = placeDetail?.name
@@ -41,34 +25,48 @@ class CustomSheet: UIView {
         }
     }
     
+    // MARK: Delegate
+    var delegate : CustomSheetDelegate?
+    
+    // MARK: Component
     var sheetInitLabel : UILabel = UILabel()
-    var route: [String]?
     var modalDismissImage : UIImageView = UIImageView()
     var placeImage : UIImageView = UIImageView()
     var placeName : UILabel = UILabel()
     var endRouteButton : UIButton = UIButton()
+    var tableview : UITableView = {
+        var tv = UITableView()
+        tv.backgroundColor = .white
+        tv.register(RouteTableViewCell.self, forCellReuseIdentifier: "routeCell")
+        tv.backgroundColor = .white
+        return tv
+    }()
     
+    let horizontalLine : UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    // MARK: Constraint
     private var isSmall = true
     private var isRotated = false
     private var height : NSLayoutConstraint?
     private var isResizing : Bool = false
     
-//    var resultviewController : ResultViewProtocol?
     
+    // Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
-    
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: View Setup
     func setup() {
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 43
-        
         // MARK: Setup Component
         sheetInitLabel.text = "Direction details"
         sheetInitLabel.font = .systemFont(ofSize: 18, weight: .medium)
@@ -89,6 +87,7 @@ class CustomSheet: UIView {
         placeName.textColor = .black
         
         // TODO: Table View Here
+        tableview.dataSource = self
         
         endRouteButton.setTitle("End Route!", for: .normal)
         endRouteButton.backgroundColor = .init(hex: "#FF5757")
@@ -96,20 +95,23 @@ class CustomSheet: UIView {
         endRouteButton.addTarget(self, action: #selector(endRouteButtonHandler(_:)), for: .touchUpInside)
         endRouteButton.layer.cornerRadius = 13.5
         
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
         
-//        // MARK: Adding Component
-//        view.addSubview(modalDismissButton)
-//        view.addSubview(placeName)
-//        view.addSubview(placeImage)
-//        // TODO: add table view to the view as well
-//        view.addSubview(endRouteButton)
+        // MARK: View Setup
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(panGesture)
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 43
         
         // MARK: Setup Sheet
         sheetLayoutSetup()
     }
     
+    // MARK: Layout Setup
     func sheetLayoutSetup() {
-        if isSmall {
+        
+        
+        if isSmall { // if the sheet is in small
             subviews.forEach { v in
                 v.removeFromSuperview()
             }
@@ -146,21 +148,22 @@ class CustomSheet: UIView {
             self.height = self.heightAnchor.constraint(equalToConstant: 131)
             height!.isActive = true
 
-        } else {
+        
+        } else { // If the sheet is in full size
             subviews.forEach{
                 $0.removeFromSuperview()
             }
             
+            
             self.addSubview(modalDismissImage)
             self.addSubview(placeImage)
             self.addSubview(placeName)
-            //MARK: Add table view here
+            self.addSubview(horizontalLine)
+            self.addSubview(tableview)
             self.addSubview(endRouteButton)
             
             
-            
             //MARK: add constraint
-            
             self.subviews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false
             }
             NSLayoutConstraint.activate([
@@ -178,12 +181,21 @@ class CustomSheet: UIView {
                 placeImage.widthAnchor.constraint(equalToConstant: 86),
                 
                 // Place Name
-                //TODO: Fix this constraint
                 placeName.leadingAnchor.constraint(equalTo: placeImage.trailingAnchor, constant: 23.5),
                 placeName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 65.5),
-                //                    placeName.topAnchor.constraint(equalTo: modalDismissImage.bottomAnchor, constant: 54),
                 placeName.centerYAnchor.constraint(equalTo: placeImage.centerYAnchor),
                 
+                // Horizontal Line
+                horizontalLine.topAnchor.constraint(equalTo: placeImage.bottomAnchor, constant: 17.5),
+                horizontalLine.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 19),
+                horizontalLine.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor, constant: 18),
+                horizontalLine.heightAnchor.constraint(equalToConstant: 1),
+                
+//                // Table View
+                tableview.topAnchor.constraint(equalTo: horizontalLine.bottomAnchor, constant: 15.5),
+                tableview.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+                tableview.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+                tableview.heightAnchor.constraint(equalToConstant: 162),
                 
                 // End Route Button
                 endRouteButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -33),
@@ -192,11 +204,6 @@ class CustomSheet: UIView {
                 endRouteButton.centerXAnchor.constraint(equalTo: self.centerXAnchor)
             ])
         }
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGesture(_:)))
-        
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(panGesture)
     }
     
     @objc func panGesture(_ sender : UIPanGestureRecognizer) {
@@ -289,6 +296,32 @@ class CustomSheet: UIView {
     
     @objc func endRouteButtonHandler(_ sender : UIButton) {
         delegate?.endRouteButtonHandle(sender)
+    }
+}
+
+extension CustomSheet : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let routes = routes else {
+            return 0
+        }
+        return routes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard 
+            let cell = tableview.dequeueReusableCell(withIdentifier: "routeCell") as? RouteTableViewCell
+        else {
+            fatalError("cell can't be convert into routeTableViewCell")
+        }
+        
+        guard let routes = routes else {
+            print("Routes is nil")
+            cell.routeDirectionText = nil
+            return cell
+        }
+        
+        cell.routeDirectionText = "\(indexPath.row). \(routes[indexPath.row])"
+        return cell
     }
 }
 

@@ -12,7 +12,7 @@ protocol ResultViewProtocol : AnyObject {
     var presenter : ResultPresenterProtocol? { get set }
     var mapview : MKMapView {get set}
     
-    func showDestination(dest : Destination)
+    func showDestination(dest: Destination, poly : MKPolyline, routes : [String])
     func showPlaceDetail(placeDetail : PlaceDetail)
 }
 
@@ -86,16 +86,21 @@ class ResultViewController: UIViewController{
 extension ResultViewController : ResultViewProtocol {
     
     
-    func showDestination(dest: Destination) {
+    func showDestination(dest: Destination, poly : MKPolyline, routes : [String]) {
         // MARK: setup mapview
         mapview.showsUserLocation = true
         mapview.removeAnnotations(mapview.annotations)
+        mapview.removeOverlays((mapview.overlays))
         
         let ann = MKPointAnnotation()
         ann.coordinate = dest.FinalSpot.1.coordinate
         ann.title = dest.FinalSpot.0
         
         mapview.addAnnotation(ann)
+        mapview.addOverlay(poly)
+        
+        sheet.routes = routes
+        sheet.tableview.reloadData()
     }
     
     func showPlaceDetail(placeDetail : PlaceDetail) {

@@ -29,6 +29,7 @@
 		AC319ACF2B39E740003BD0A4 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319ACE2B39E740003BD0A4 /* HomePresenter.swift */; };
 		AC319AD22B39E824003BD0A4 /* homeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319AD12B39E824003BD0A4 /* homeInteractor.swift */; };
 		AC319AD52B39ED02003BD0A4 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC319AD42B39ED02003BD0A4 /* Destination.swift */; };
+		ACBCCE632B454C0D002EC3DB /* RouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBCCE622B454C0D002EC3DB /* RouteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		AC319AD12B39E824003BD0A4 /* homeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeInteractor.swift; sourceTree = "<group>"; };
 		AC319AD42B39ED02003BD0A4 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		AC9C3AAE2B4312B400A6B8DB /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ACBCCE622B454C0D002EC3DB /* RouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				AC312A802B41743F00486B15 /* CustomSheet.swift */,
+				ACBCCE622B454C0D002EC3DB /* RouteTableViewCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC2C3AD62B3D834E004BAA8A /* ResultRouter.swift in Sources */,
+				ACBCCE632B454C0D002EC3DB /* RouteTableViewCell.swift in Sources */,
 				AC319AD22B39E824003BD0A4 /* homeInteractor.swift in Sources */,
 				AC312A812B41743F00486B15 /* CustomSheet.swift in Sources */,
 				AC319ACC2B399235003BD0A4 /* Emotions.swift in Sources */,
